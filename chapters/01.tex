@@ -1,6 +1,70 @@
 \chapter{Theory}
 \section{Composition of the cosmic rays}
+Primary cosmic rays consist mainly of protons (85\,\%), $\alpha$-particles (12\,\%) and small portions of heavier nuclei, electrons and $\gamma$-quanta. Their energy ranges from $10^6\, \mathrm{eV}$ to $10^{21}\, \mathrm{eV}$. The spectrum can be described by the formula:
+\[
+N(>E) = K\cdot \left(\frac{E}{E_0}\right)^{-\gamma}
+\]
+with $E_0 = 10^{16}\, \text{eV}$, $K = 3\cdot 10^{-4}\, \text{m}^{-2}\text{h}^{-1}$ and $\gamma = 1.7 \ldots 2.1$. $N(>E)$ is the rate of particles with energy greater than $E$, and $\gamma$ is the spectral index.\\
+When scientists observe cosmic radiation, they usually do not measure the primary particles directly, as these collide with atmospheric nuclei and thereby create secondary particles, which can then be detected.
+\paragraph{Reactions in the atmosphere}
+Primary nucleons interact via the strong interaction with air nuclei and create secondary particles such as nucleons and pions. The nucleons undergo further collisions, transferring part of the kinetic energy from the primary particles. This shower of particles, the so-called nuclear cascade, stops when the energy of the hadrons becomes too low to produce pions ($\sim 300\, \text{MeV}$). The neutral pions are unstable and quickly decay into two $\gamma$-quanta:
+\[
+\pi^0 \rightarrow 2\gamma \quad \text{with} \quad \tau = 8.4 \cdot 10^{-17}\, \text{s}
+\]
+These $\gamma$-quanta initiate the electromagnetic cascade. They are so energetic that pair production (electron-positron pairs) becomes the most probable reaction. Both leptons acquire nearly the entire $\gamma$-energy and travel in approximately the same direction as the $\gamma$-quantum, with some angular deviation.\\
+There are two main mechanisms by which leptons lose energy: ionization ($\propto Z \cdot \ln(E)$) and bremsstrahlung ($\propto Z^2 \cdot E$). At high energies, bremsstrahlung dominates, forming a cone-shaped shower of leptons and $\gamma$-quanta around the path of the primary particle. An energy greater than $10^{12}\, \mathrm{eV}$ is required for such electromagnetic showers to reach the Earth's surface.
+\paragraph{Decay of charged pions}
+Charged pions decay via the weak interaction into muons and muon neutrinos ($\tau = 2.60 \cdot 10^{-8}\, \text{s}$):
+\[
+\pi^+ \rightarrow \mu^+ + \nu_\mu
+\]
+\[
+\pi^- \rightarrow \mu^- + \bar{\nu}_\mu
+\]
+It is important to note that the average lifetime of a charged pion is significantly longer than that of a neutral pion. However, hardly any charged pions reach the Earth's surface, as their mean free path is not sufficient. Muons, on the other hand, have a small cross-section and interact primarily via the electromagnetic interaction. Therefore, they can reach the Earth's surface and even penetrate deep below it. But muons can also further decay into an electron, electron-neutrino and muon-neutrino ($\tau = 2.19 \cdot 10^{-6}\, \text{s}$):
+\[
+\mu^+ \rightarrow e^+ + \nu_e + \bar{\nu}_\mu
+\]
+\[
+\mu^- \rightarrow e^- + \bar{\nu}_e + \nu_\mu
+\]
+One notices that the lifetime of a muon is even longer than that of a charged pion.\\
+The radiation observed at the Earth's surface is split into two components:
+\begin{itemize}
+\item muons $\rightarrow$ long-range, hard component
+\item electrons, positrons, bremsstrahlung quanta $\rightarrow$ short-range, soft component
+\end{itemize}
+A paradox arises due to the fact that the classical decay length of muons is only $\lambda = 600\, \text{m}$. As muons are clearly observed at the Earth's surface, this seems contradictory. However, special relativity resolves this issue:
+\[
+\text{mean lifetime on Earth: } \tau_e = \frac{\tau}{\sqrt{1 - \frac{v^2}{c^2}}} = \gamma \,\tau
+\]
+Here, $\gamma$ is the Lorentz factor. For an extremely relativistic particle, e.g., $E = 10\, \text{GeV}$, this leads to $\lambda = 60 \, \text{km}$.
+
 \section{The deceleration of muons in matter}
+In matter muons lose energy due to bremsstrahlung and if the energy is smaller than GeV range ionization becomes relevant. At near-rest-energies, negative and positive muons behave differently.
+\paragraph{Negative muons}
+Negative muons are captured by the atoms in excited states and they land relatively quickly in the K-shell of the atom under emission of a X-rays. After that the muon is captured by the nucleus which opens up a second decay channel for $\mu^-$. Hence the average lifetime is lowered and therefore one mostly detects $\mu^+$.
+\paragraph{Positive muons}
+At low energies $\mu^+$ capture electrons from shells and form muonium (hydrogen structure). The repetition of the process of ionization and rebuilding muonium and also collisions until thermalization decelerates the muon.\\
+\\
+The time scale of these processes are short compared to the lifetime of a muon. 
+\begin{itemize}
+\item deceleration due to scattering: $10^{-10}\, \text{s}$
+\item capture and ionization of muonium: $5\cdot 10^{-13}\, \text{s}$
+\item Thermalization: $10^{-12}\, \text{s}$
+\end{itemize}
+
+
+
 \section{Muon polarization}
+The charged Pion decay via the weak interaction into $\mu^{+/-}$s and a $\nu_{\mu^{-/+}}$. Since Neutrinos have a neglectable mass their helicity and chirality is the same. In the standard model Neutrinos only have a negative chirality (anti Neutrinos have positive chirality). This implies that the helicity of the $\mu^{+/-}$ must be the same as helicity of the $\mu^{+/-}$neutrino emitted in the same interaction.  
+The only possibility for an unpolarized Muon stream is if it is equally likely to detect Muons that were emitted in the same direction as the momentum of the pion as it is to detect Muons that were emitted in the opposite direction. But this is not the case, since the Pions are not at rest compared to the detector on earth. For the Muons which were emitted in the opposite direction compared to the momentum of the Pion in the rest frame of the detector a higher energy is required for them to still be able to reach the detector. Since the spectrum of the pions is not constant, the Muons arriving at the detector will (on average) be polarized. 
+
 \section{A proof of muon decay}
+The decay per energy and solid angle of the $\mu^+$ into a Positronium and a anti electron neutrino has the following form:
+\begin{equation}
+    \frac{d^2N}{d\epsilon d\Omega} = a (1 + b \cos{\theta})
+\end{equation}
+where $\theta$ is the angle between the spin and the momentum of the $\mu^+$. Hence the emitted positrons have a preferred direction which is along side the spin direction since cosine is maximal at an angle of 0. 
 \section{The precession of muons in the magnetic field}
+The magnetic moment associated with the Spin of the Muons is $\vec \mu = \gamma \vec J$. In the presence of a magnetic field this leads to a precession along the magnetic field lines with an angular frequency of $\omega = \gamma B$ where $\gamma = \frac{g e}{2 m_e}$ is the gyromagnetic ratio of the particle. The Lande factor $g$ is predicted to be 1 by classical considerations. Dirac theory predicts that it is two in first order which is also the measured value.
