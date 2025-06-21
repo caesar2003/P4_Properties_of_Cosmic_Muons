@@ -1,1 +1,19 @@
 \chapter{Procedure}
+
+\section{Panel efficiency}
+The efficiency of the panels can be calculated in the following way: All events in which e.g. scintillator 1 and 3 were triggered would suggest that scintillator 2 should have been triggered as well. This works fine for scintillators 2 and 3. For scintillators 1 and 4 the method has to be adjusted a bit. For e.g. scintillator 1 all events are taken into account in which at least two of the other scintillators were triggered. The problem is that this could have been triggered by a muon which is approaching at a slight angle in such a way that in never passed through scintillator 1. For scintillator 4 the decay of the muon is another effect which slightly changes the efficiency. These effects are not taken into account in this experiment. 
+
+First the data is inspected to make sure all panels and the trigger work properly.
+For the scintillators the following efficiencies where calculated
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c}
+         scintillator& efficiency \\ 
+         1 & 0.994 \\
+         2 & 0.941 \\
+         3 & 0.952 \\
+         4 & 0.945 \\
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:my_label}
+\end{table}
