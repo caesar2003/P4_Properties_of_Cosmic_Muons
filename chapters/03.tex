@@ -1,9 +1,39 @@
-\chapter{Procedure}
+\chapter{Results}
 
 \section{Panel efficiency}
 The efficiency of the panels can be calculated in the following way: All events in which e.g. scintillator 1 and 3 were triggered would suggest that scintillator 2 should have been triggered as well. This works fine for scintillators 2 and 3. For scintillators 1 and 4 the method has to be adjusted a bit. For e.g. scintillator 1 all events are taken into account in which at least two of the other scintillators were triggered. The problem is that this could have been triggered by a muon which is approaching at a slight angle in such a way that in never passed through scintillator 1. For scintillator 4 the decay of the muon is another effect which slightly changes the efficiency. These effects are not taken into account in this experiment. 
 
 First the data is inspected to make sure all panels and the trigger work properly.
+
+As seen in \autoref{fig:even_rate_eff} the event rate is approximately constant which is good.
+
+The pulse height spectrum of every individual panels is shown in \autoref{fig:pulse_heights}. Since they all have approximately the same peak height they all seem to work fine.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{data/analysis/event_rate_eff.png}
+    \caption{rate of events in the measurement used to calculate the efficiency of the panels}
+    \label{fig:even_rate_eff}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.48\textwidth}
+        \includegraphics[width=\linewidth]{data/analysis/pulse_height_A.png}
+    \end{minipage}
+    \begin{minipage}[b]{0.48\textwidth}
+        \includegraphics[width=\linewidth]{data/analysis/pulse_height_B.png}
+    \end{minipage}
+    \begin{minipage}[b]{0.48\textwidth}
+        \includegraphics[width=\linewidth]{data/analysis/pulse_height_C.png}
+    \end{minipage}
+    \begin{minipage}[b]{0.48\textwidth}
+        \includegraphics[width=\linewidth]{data/analysis/pulse_height_D.png}
+    \end{minipage}
+    \caption{Pulse height spectrum of scintillator 1, 2, 3, 4 (top left to bottom right; note the different y-axis scales)}
+    \label{fig:pulse_heights}
+\end{figure}
+
 For the scintillators the following efficiencies where calculated
 \begin{table}[h]
     \centering
@@ -14,6 +44,38 @@ For the scintillators the following efficiencies where calculated
          3 & 0.952 \\
          4 & 0.945 \\
     \end{tabular}
-    \caption{Caption}
-    \label{tab:my_label}
+    \caption{Panel efficiency}
+    \label{tab:panel_efficiency}
 \end{table}
+
+
+\section{Lifetime}
+The lifetime measurement for works the following way:
+As soon as a muon was detected in scintillator 1 and 2 but not in scintillator 3  and 4 it can be assumed that the muon decayed inside the copper plate. This event starts the beginning of a lifetime measurement. A event where scintillator 2 or 2 and 1 but not 3 or 3 and 4 (for a positron which is emitted upwards) or 3 or 3 and 4 but not 2 or 2 and 1 (for a positron which is emitted downwards) are triggered marks the end of a lifetime measurement. A lifetime measurement signal is shown in \autoref{fig:lifetime_signal}. The second peak is a signal from scintillator 3 and 4 which means that the positron was emitted downwards.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{data/Muon_decay_waveform_lifetime_2.png}
+    \caption{Caption}
+    \label{fig:lifetime_signal}
+\end{figure}
+
+For the measurement of the lifetime about $13,000,000$ events were recorded out of which about $250,000$ satisfied the criteria to resemble a decay with which the lifetime could be determined. The $250,000$ lifetimes of individual muons were histogramed. This histogram was fitted with "PhyPraKit". The fit is shown in \autoref{fig:lifetime_hist_fit}. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{data/analysis/lifetime_hist_fit.png}
+    \caption{Fit of the lifetime to the recorded data}
+    \label{fig:lifetime_hist_fit}
+\end{figure}
+We found the lifetime of a muon to be approximately $2.09 \pm 0.012 \mu s$ which is close enough to the literature value of $2.2 \mu s$.
+
+The negative LogLikelihood is shown in \autoref{fig:lifetime_LL}. One observes that the errors are slightly asymmetrc.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{data/analysis/lifetime_tau_LL.png}
+    \caption{Negative LogLikelihood of lifetime mearuement fit}
+    \label{fig:lifetime_LL}
+\end{figure}
+
