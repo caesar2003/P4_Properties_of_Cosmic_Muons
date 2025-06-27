@@ -1,2 +1,54 @@
 \chapter{Results and discussion}
-4.1 mT
+\section*{Procedure for Detecting Muon Spin}
+
+As an alternative to the simple exponential decay law, we use a parameterization of the number of decays detected in the upper detector at time \( t \), which includes a small additional oscillating component (see experiment instructions in the Blue Book):
+
+\begin{equation}
+  \mathrm{pdf}_{\mathrm{signal}}(t) = 
+  K \cdot e^{-t/\tau} \cdot \left[1 + \bar{A} \cdot \cos(\omega t + \delta) \right]
+\end{equation}
+
+To use this probability density in a fit, it must be normalized over the sensitive time interval \( t \in [a, b] \). The required normalization constant \( K \) is computed via:
+
+{\scriptsize
+\begin{align}
+  K^{-1}
+  = \tau \Bigg( 
+    \frac{ \bar{A} \Big[ 
+      e^{-a/\tau} \left( \cos(a \omega + \delta) - \tau \omega \sin(a \omega + \delta) \right) 
+      + e^{-b/\tau} \left( \tau \omega \sin(b \omega + \delta) - \cos(b \omega + \delta) \right)
+    \Big] }{ \tau^2 \omega^2 + 1 }
+  + e^{-a/\tau} - e^{-b/\tau}
+  \Bigg)
+\end{align}
+}
+
+
+
+
+\subsection*{Background Component}
+
+The background is modeled as a constant probability density in the same time interval:
+
+\begin{equation}
+  \mathrm{pdf}_{\mathrm{bkg}}(t) = \frac{1}{b - a}
+\end{equation}
+
+With a background fraction \( f \), the total probability density function becomes:
+
+\begin{equation}
+  \mathrm{pdf}(t; \tau, f, \bar{A}, \omega, \delta, a, b) = 
+  (1 - f) \cdot \mathrm{pdf}_{\mathrm{signal}}(t) + 
+  f \cdot \mathrm{pdf}_{\mathrm{bkg}}(t)
+\end{equation}
+
+\subsection*{Phase Shift for Lower Detector}
+
+For decays detected in the lower detector, located below the copper absorber, the modulation is phase-shifted by \( 180^\circ \). This effect can be modeled by appropriately adjusting the phase parameter \( \delta \). With this adjustment, the same functional form can be reused for both detectors.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{data/analysis/lifetime_tau_LL.png}
+    \caption{Negative LogLikelihood of lifetime mearuement fit}
+    \label{fig:lifetime_LL}
+\end{figure}
