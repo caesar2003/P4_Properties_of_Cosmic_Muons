@@ -1,6 +1,6 @@
 \chapter{Results and discussion}
 \section*{Procedure for Detecting Muon Spin}
-
+\textit{The following section is based on the provided Jupyter notebook for the muon lifetime experiment \cite{Jupyter}.}
 As an alternative to the simple exponential decay law, we use a parameterization of the number of decays detected in the upper detector at time \( t \), which includes a small additional oscillating component (see experiment instructions in the Blue Book):
 
 \begin{equation}
@@ -56,6 +56,7 @@ For decays detected in the lower detector, located below the copper absorber, th
 
 
 \section*{Read in of measurement data and quality control}
+Unlike the usual one-week measurement period, the data in this case were recorded over a period of two weeks.
 
 \begin{figure}[H]
     \centering
@@ -81,12 +82,17 @@ For decays detected in the lower detector, located below the copper absorber, th
     \begin{minipage}[b]{0.48\textwidth}
         \includegraphics[width=\linewidth]{data/analysis/pulse_height_C_long.png}
     \end{minipage}
-    \caption{Pulse height spectrum}
+    \caption{histograms of the pulse amplitudes for the primary pulses in panels A and B (top) and the secondary pulses in panels B and C (bottom)}
     \label{fig:pulse_heights}
 \end{figure}
 
-\section*{Filtering of the measured data}
+The total number of triggered events is \num{132615274}, of which \num{260757} pulses were selected for further analysis.
 
+
+
+
+\section*{Filtering of the measured data}
+In the following analysis, two distinct cases must be considered. When a muon penetrates the copper plate, it decays by emitting a positron, which can be detected either in detector B or detector C. This effectively provides measurements for particles moving upward as well as downward. Consequently, two separate lifetime distributions arise, illustrated in Figure \ref{fig:lifetime distributions}. The left panel displays the lifetime distribution for positrons detected by the upper detector (B), while the right panel corresponds to detections beneath the copper plate (detector C). After applying the event selection criteria, we recorded 88,766 events for the top detector and 62,746 events for the bottom detector.
 \begin{figure}[H]
     \centering
     \begin{minipage}[b]{0.48\textwidth}
@@ -95,6 +101,86 @@ For decays detected in the lower detector, located below the copper absorber, th
     \begin{minipage}[b]{0.48\textwidth}
         \includegraphics[width=\linewidth]{data/analysis/lifetime_distribution_C_long.png}
     \end{minipage}
-    \caption{lifetime distributions}
+    \caption{lifetime distributions for detector B and C}
     \label{fig:lifetime distributions}
 \end{figure}
+
+\section*{Adjustments of the pure exponential model ("Null Hypothesis") and the model with spin modulation}
+
+In this part of the analysis, we examine the distribution of muon decay times by fitting two different models to the measured lifetime data. First, we apply a pure exponential decay model, representing the null hypothesis with no spin precession. This yields initial estimates for the muon lifetime $\tau$ and the background fraction $f_\mathrm{bg}$. In a second step, a refined model including spin modulation is fitted to the data, with $\tau$ and $f_\mathrm{bg}$ fixed. This allows the extraction of the asymmetry parameter $\bar{A}$.
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.48\textwidth}
+        \includegraphics[width=\linewidth]{data/analysis/lifetime_hist_fit_long1.png}
+    \end{minipage}
+    \begin{minipage}[b]{0.48\textwidth}
+        \includegraphics[width=\linewidth]{data/analysis/lifetime_hist_fit_long2.png}
+    \end{minipage}
+    \caption{Fit of the lifetime to the recorded data of the detector B}
+    \label{fig:histfit1}
+\end{figure}
+For the fit to the data from detector B, the following parameter values were obtained:
+
+\begin{itemize}
+    \item Muon lifetime: $\tau = \SI{2.117}{\micro\second}^{+0.015}_{-0.015}$
+    \item Background fraction: $f_\mathrm{bg} = 0.1687^{+0.0030}_{-0.0030}$
+    \item Asymmetry parameter: $\bar{A} = 0.0219^{+0.0062}_{-0.0062}$
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.48\textwidth}
+        \includegraphics[width=\linewidth]{data/analysis/lifetime_hist_fit_long3.png}
+    \end{minipage}
+    \begin{minipage}[b]{0.48\textwidth}
+        \includegraphics[width=\linewidth]{data/analysis/lifetime_hist_fit_long4.png}
+    \end{minipage}
+    \caption{Fit of the lifetime to the recorded data of detector C}
+    \label{fig:histfit2}
+\end{figure}
+For the fit to the data from detector C, the following parameter values were obtained:
+
+\begin{itemize}
+    \item Muon lifetime: $\tau = \SI{2.069}{\micro\second}^{+0.022}_{-0.022}$
+    \item Background fraction: $f_\mathrm{bg} = 0.3148^{+0.0043}_{-0.0044}$
+    \item Asymmetry parameter: $\bar{A} = 0.0288^{+0.0088}_{-0.0087}$
+\end{itemize}
+
+\section*{Statistical evaluation and determination of the signal significance}
+
+In this final step, we examine whether the data show a significant modulation due to muon spin precession. To do this, we compare the results of two fits: one using a simple exponential decay (null hypothesis) and another including a sinusoidal modulation (alternative hypothesis).
+
+The comparison is based on the values of the negative log-likelihood (NLL) from both fits. The test statistic is the difference of these values, defined as
+
+\begin{equation}
+    z^2 = -2 \cdot \Delta \ln \mathcal{L} = -2 \cdot (\mathrm{NLL}_{\text{mod}} - \mathrm{NLL}_{\text{non-mod}}),
+\end{equation}
+
+where a higher $z^2$ value indicates a stronger preference for the modulation model. The square root $z$ corresponds to the significance of the observed modulation in terms of standard deviations.
+
+As an additional cross-check, the significance can also be estimated by dividing the fitted asymmetry parameter $\bar{A}$ by its uncertainty $\sigma_{\bar{A}}$:
+
+\begin{equation}
+    z \approx \frac{\hat{\bar{A}}}{\sigma_{\bar{A}}}.
+\end{equation}
+
+From $z$, we calculate the corresponding $p$-value using the cumulative distribution function $\Phi$ of the standard normal distribution:
+
+\begin{equation}
+    p = 1 - 2\,(1 - \Phi(z)), \quad z \ge 0.
+\end{equation}
+
+The $p$-value expresses the probability that the observed deviation from the null hypothesis is purely due to statistical fluctuations. Small $p$-values therefore indicate statistically significant signals.
+
+This evaluation helps decide whether the oscillation seen in the data is meaningful.\\
+
+For both the upper and lower detectors, the fits including modulation yield significantly better agreement with the data compared to the pure exponential model. The statistical results are:
+
+\begin{itemize}
+    \item \textbf{Upper Detector (B)}: $z = 3.52 \Rightarrow p = 0.02195\%$
+    \item \textbf{Lower Detector (C)}:  $z = 3.29 \Rightarrow p = 0.04925\%$
+\end{itemize}
+
+In both cases, the $p$-values are well below the common threshold of 5\%, allowing us to reject the null hypothesis. This provides strong evidence for the presence of a modulation in the muon decay time distribution, consistent with spin precession.
+
