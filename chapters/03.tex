@@ -60,7 +60,7 @@ As soon as a muon was detected in scintillator 1 and 2 but not in scintillator 3
     \label{fig:lifetime_signal}
 \end{figure}
 
-For the measurement of the lifetime about $13,000,000$ events were recorded out of which about $250,000$ satisfied the criteria to resemble a decay with which the lifetime could be determined. The $250,000$ lifetimes of individual muons were histogramed. This histogram was fitted with "PhyPraKit". The fit is shown in \autoref{fig:lifetime_hist_fit}. 
+For the measurement of the lifetime about $250,000$ events were recorded out of which $331$ satisfied the criteria to resemble a decay with which the lifetime could be determined. The $331$ lifetimes of individual muons were histogramed. This histogram was fitted with "PhyPraKit". The fit is shown in \autoref{fig:lifetime_hist_fit}. 
 
 \begin{figure}
     \centering
@@ -68,11 +68,11 @@ For the measurement of the lifetime about $13,000,000$ events were recorded out 
     \caption{Fit of the lifetime to the recorded data}
     \label{fig:lifetime_hist_fit}
 \end{figure}
-We found the lifetime of a muon to be approximately $2.09 \pm 0.012 \mu s$ which is close enough to the literature value of $2.2 \mu s$.
+The lifeteime of a moun was found to be approximately $2.22^{+0.27}_{- 0.23 } \mu s$ which is close enough to the literature value of $2.2 \mu s$.
 
-The negative LogLikelihood is shown in \autoref{fig:lifetime_LL}. One observes that the errors are slightly asymmetric.
+The negative LogLikelihood is shown in \autoref{fig:lifetime_LL}. One observes that the errors are asymmetric. If more events were recorded the errors could be improved and would become more symmetric.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{data/analysis/lifetime_tau_LL.png}
     \caption{Negative LogLikelihood of lifetime mearuement fit}
@@ -84,7 +84,7 @@ The negative LogLikelihood is shown in \autoref{fig:lifetime_LL}. One observes t
 
 \section{Procedure for Detecting Muon Spin}
 \textit{The following section is based on the provided Jupyter notebook for the muon lifetime experiment \cite{Jupyter}.}
-As an alternative to the simple exponential decay law, we use a parameterization of the number of decays detected in the upper detector at time \( t \), which includes a small additional oscillating component (see experiment instructions in the Blue Book):
+As an alternative to the simple exponential decay law, a parameterization of the number of decays detected in the upper detector at time \( t \), which includes a small additional oscillating component (see experiment instructions in the Blue Book) is used:
 
 \begin{equation}
   \mathrm{pdf}_{\mathrm{signal}}(t) = 
@@ -138,15 +138,9 @@ For decays detected in the lower detector, located below the copper absorber, th
 
 
 
-\section*{Read in of measurement data and quality control}
-Unlike the usual one-week measurement period, the data in this case were recorded over a period of two weeks.
+\subsection*{Read in of measurement data and quality control}
+Unlike the usual one-week measurement period, the data in this case were recorded over a period of two weeks. This allowed for higher than usual trigger heights which should lead to a decreased background.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\linewidth]{data/analysis/event_rate_eff_long.png}
-    \caption{rate of events in the measurement}
-    \label{fig:lifetime_LL}
-\end{figure}
 
 
 
@@ -160,7 +154,7 @@ Unlike the usual one-week measurement period, the data in this case were recorde
         \includegraphics[width=\linewidth]{data/analysis/pulse_height_B_long.png}
     \end{minipage}
     \begin{minipage}[b]{0.48\textwidth}
-        \includegraphics[width=\linewidth]{data/analysis/pulse_height_B_long_2.png}
+        \includegraphics[width=\linewidth]{data/analysis/pulse_height_B_long2.png}
     \end{minipage}
     \begin{minipage}[b]{0.48\textwidth}
         \includegraphics[width=\linewidth]{data/analysis/pulse_height_C_long.png}
@@ -174,8 +168,8 @@ The total number of triggered events is \num{132615274}, of which \num{260757} p
 
 
 
-\section{Selection of the measured data}
-In the following analysis, two distinct cases must be considered. When a muon penetrates the copper plate, it decays by emitting a positron, which can be detected either in detector B or detector C. This effectively provides measurements for particles moving upward as well as downward. Consequently, two separate lifetime distributions arise, illustrated in Figure \ref{fig:lifetime distributions}. The left panel displays the lifetime distribution for positrons detected by the upper detector (B), while the right panel corresponds to detections beneath the copper plate (detector C). After applying the event selection criteria, we recorded 88,766 events for the top detector and 62,746 events for the bottom detector.
+\subsection*{Selection of the measured data}
+In the analysis of the data, two distinct cases must be considered. When a muon penetrates the copper plate, it decays by emitting a positron, which can be detected either in detector B or detector C. This effectively provides measurements for particles moving upward as well as downward. Consequently, two separate lifetime distributions arise, shown in Figure \ref{fig:lifetime distributions}. The left panel displays the lifetime distribution for positrons detected by the upper detector (B), while the right panel corresponds to detections beneath the copper plate (detector C). After applying the event selection criteria, 88,766 events for the top detector and 62,746 events for the bottom detector were recorded.
 \begin{figure}[H]
     \centering
     \begin{minipage}[b]{0.48\textwidth}
@@ -188,9 +182,9 @@ In the following analysis, two distinct cases must be considered. When a muon pe
     \label{fig:lifetime distributions}
 \end{figure}
 
-\section*{Adjustments of the pure exponential model ("Null Hypothesis") and the model with spin modulation}
+\subsection*{Adjustments of the pure exponential model ("Null Hypothesis") and the model with spin modulation}
 
-In this part of the analysis, we examine the distribution of muon decay times by fitting two different models to the measured lifetime data. First, we apply a pure exponential decay model, representing the null hypothesis with no spin precession. This yields initial estimates for the muon lifetime $\tau$ and the background fraction $f_\mathrm{bg}$. In a second step, a refined model including spin modulation is fitted to the data, with $\tau$ and $f_\mathrm{bg}$ fixed. This allows the extraction of the asymmetry parameter $\bar{A}$.
+Now the distribution of the muon decay times are analysed by fitting two different models to the measured lifetime data. First a pure exponential decay model is applied, representing the null hypothesis with no spin precession. This yields initial estimates for the muon lifetime $\tau$ and the background fraction $f_\mathrm{bg}$. These fits are on the left hand side of \autoref{fig:histfit1}  and \autoref{fig:histfit2}. In a second step, a refined model including spin modulation is fitted to the data, with $\tau$ and $f_\mathrm{bg}$ fixed values from the first step. This allows the extraction of the asymmetry parameter $\bar{A}$. These fits are on the right hand side of \autoref{fig:histfit1} and \autoref{fig:histfit2}.
 
 \begin{figure}[H]
     \centering
@@ -230,9 +224,9 @@ For the fit to the data from detector C, the following parameter values were obt
     \item Asymmetry parameter: $\bar{A} = 0.0288^{+0.0088}_{-0.0087}$
 \end{itemize}
 
-\section*{Statistical evaluation and determination of the signal significance}
+\subsection*{Statistical evaluation and determination of the signal significance}
 
-In this final step, we examine whether the data show a significant modulation due to muon spin precession. To do this, we compare the results of two fits: one using a simple exponential decay (null hypothesis) and another including a sinusoidal modulation (alternative hypothesis).
+Finally the statistical significance of the two different fits, one a pure exponential (null hypothesis), the other one additionally considering the muon precession (alternative precession), is being determined. 
 
 The comparison is based on the values of the negative log-likelihood (NLL) from both fits. The test statistic is the difference of these values, defined as
 
@@ -242,19 +236,14 @@ The comparison is based on the values of the negative log-likelihood (NLL) from 
 
 where a higher $z^2$ value indicates a stronger preference for the modulation model. The square root $z$ corresponds to the significance of the observed modulation in terms of standard deviations.
 
-As an additional cross-check, the significance can also be estimated by dividing the fitted asymmetry parameter $\bar{A}$ by its uncertainty $\sigma_{\bar{A}}$:
 
-\begin{equation}
-    z \approx \frac{\hat{\bar{A}}}{\sigma_{\bar{A}}}.
-\end{equation}
-
-From $z$, we calculate the corresponding $p$-value using the cumulative distribution function $\Phi$ of the standard normal distribution:
+With $z$, the corresponding $p$-value is calculated using the cumulative distribution function $\Phi$ of the standard normal distribution:
 
 \begin{equation}
     p = 1 - 2\,(1 - \Phi(z)), \quad z \ge 0.
 \end{equation}
 
-The $p$-value expresses the probability that the observed deviation from the null hypothesis is purely due to statistical fluctuations. Small $p$-values therefore indicate statistically significant signals.
+The $p$-value is a measure for the probability that the observed deviation from the null hypothesis is purely due to statistical fluctuations. Small $p$-values therefore indicate statistically significant signals.
 
 This evaluation helps decide whether the oscillation seen in the data is meaningful.\\
 
